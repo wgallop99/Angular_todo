@@ -1,5 +1,10 @@
 
 // Custom Styles
+
+.strike {
+  text-decoration: line-through;
+}
+
 body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -90,15 +95,17 @@ h1 {
 
     li a {
       text-decoration: none;
+      margin-right: 0px;
 
     }
 
   }
 
   p {
+    position: relative;
     float: left;
     margin-left: 10px;
-
+    margin-right: 0px;
   }
 
   button {
@@ -107,13 +114,20 @@ h1 {
   }
 }
 
-.edit {
-  display: inline;
-  width: 150px;
-  top: 0px;
-  left: 49px;
-  border-top: none;
-  background: #fafafa;
+.edit_form {
+  margin: 0px;
+  position: absolute;
+  top: 15px;
+  left:50px;
+
+  .edit {
+    display: inline;
+    width: 150px;
+    top: 0px;
+    left: 49px;
+    border-top: none;
+    background: #fafafa;
+  }
 }
 
 .hide {

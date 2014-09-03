@@ -19,30 +19,36 @@
     <!-- endbuild -->
 
   </head>
-  <body>
+  <body ng-app>
 
 
 
-    <div class="container">
+    <div class="container" ng-controller="MainController">
       <h1>todos</h1>
 
       <div class="form_container">
-        <form class="make_list">
+        <form class="make_list" ng-submit="addTask(newTask)">
 
           <img src="images/inputimg.png">
-          <input type="text" id="main_task" class="task" name="task" placeholder="What needs to be done?" required>
+          <input ng-model="newTask.thing" type="text" id="main_task" class="task" name="task" placeholder="What needs to be done?" required>
         </form>
         <ul class="todo_list">
-        <!-- li is entered here  -->
+          <li ng-repeat="task in list" class="active">
+            <p><img ng-click="task.completed=!task.completed" src="images/vh8dRvC.png" class="check">
+              <span ng-dblclick="edit = true" ng-hide="edit" ng-class="{ strike: task.completed }">{{ task.thing }}</span><img ng-click="delete(task)" src="images/C9u1sfv.png" class="X">
+              <form ng-submit="edit = false" ng-show="edit" class="edit_form">
+                <input ng-model="task.thing" type="text" class="edit active" placeholder="{{ task.thing }}">
+              </form>
+          </li>
         </ul>
         <div class="bottom-bar">
-          <p>"" item left</p>
+          <p>"{{ total() }}" item(s) left</p>
           <ul>
             <li id="all"><a href="#">All</a></li>
             <li id="active"><a href="#">Active</a></li>
             <li id="completed"><a href="#">Completed</a></li>
           </ul>
-          <button>Clear Completed (i)</button>
+          <button ng-click="clear()">Clear Completed ({{list.length - total()}})</button>
         </div>
         <p>Double-Click to edit a todo</p>
       </div>
@@ -50,14 +56,13 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
-        <script src="scripts/template.js"></script>
-        <script src="scripts/main.js"></script>
+        <script src="scripts/app.js"></script>
         <!-- endbuild -->
 </body>
 </html>
