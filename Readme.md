@@ -1,3 +1,3 @@
-## Yo, I'm a Readme
+## Angular Todo List
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+Angular Todo List similar to the jQuery example listed earlier. Modeled off of the Todo MVC.
